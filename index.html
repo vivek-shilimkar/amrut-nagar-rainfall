@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainfall Timeseries</title>
+    <!-- Add Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div style="width: 80%; margin: 0 auto;">
+        <canvas id="rainfallChart"></canvas>
+    </div>
+
+    <script>
+        // Sample rainfall data (replace this with your actual data)
+        const rainfallData = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            datasets: [
+                {
+                    label: 'Rainfall',
+                    data: [50, 30, 70, 45, 60, 80, 90, 100, 75, 40, 55, 65], // Replace with your rainfall data here
+                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1,
+                    fill: true,
+                }
+            ]
+        };
+
+        // Create the timeseries plot
+        const ctx = document.getElementById('rainfallChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: rainfallData,
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Month'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Rainfall (mm)'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
