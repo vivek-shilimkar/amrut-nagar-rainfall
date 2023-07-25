@@ -1,0 +1,40 @@
+/* Add CSS styling here */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.graph-container {
+    width: 60%;
+}
+
+.data-container {
+    width: 40%;
+    height: 450px; /* Adjust the height as desired */
+    overflow-y: auto; /* Add a vertical scrollbar if needed */
+}
+
+/* Add CSS styling for table lines */
+table {
+  border-collapse: collapse;
+  width: 30%;
+  height: 200px;
+}
+
+table, th, td {
+  border: 1px dashed black;
+  padding: 8px;
+  text-align: center; /* Align text at center */
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+/* Reduce the table cell padding */
+th, td {
+  padding: 5px;
+}
+
+/* Add additional styling as needed */
