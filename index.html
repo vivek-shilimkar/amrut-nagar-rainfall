@@ -1,40 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rainfall Timeseries</title>
-    <!-- Add Chart.js library -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/Chart.js"></script>
-    <!-- Add styles.css for custom styling -->
-    <link rel="stylesheet" href="./styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rainfall Data Chart</title>
+  <!-- Include Chart.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* Add CSS style for the chart container */
+    #chartContainer {
+      width: 50%;
+      height: 400px;
+      float: left;
+      margin-right: 20px;
+    }
+
+    /* Add CSS style for the dashed line table */
+    #forecastTable {
+      float: left;
+    }
+
+    /* Add CSS style for the table title */
+    #tableTitle {
+      font-weight: bold;
+      text-align: center;
+    }
+
+    /* Add CSS style for the table rows */
+    #forecastTable tr td {
+      border-top: 1px dashed #333;
+      padding: 5px;
+    }
+  </style>
 </head>
 <body>
-    <h1>Rainfall as observed in Amrut Nagar, Jambhulwadi Road, Pune.</h1>
+  <h1>Rainfall Data Chart</h1>
+  <div id="chartContainer">
+    <canvas id="rainfallChart"></canvas>
+  </div>
 
-    <div class="container">
-        <div class="graph-container">
-            <canvas id="rainfallChart" height="400"></canvas> <!-- Increased chart height to 400 pixels -->
-        </div>
+  <div id="forecastTable">
+    <p id="tableTitle">Last 5 Forecast Values</p>
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Forecast Rainfall (mm)</th>
+      </tr>
+    </table>
+  </div>
 
-        <div class="data-container">
-            <h2>Rainfall Forecast for Next Three Days</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Forecast (mm)</th>
-                    </tr>
-                </thead>
-                <tbody id="forecastTableBody">
-                    <!-- Forecast rows will be dynamically added here -->
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <!-- Load app.js containing the JavaScript code -->
-    <script src="./app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
