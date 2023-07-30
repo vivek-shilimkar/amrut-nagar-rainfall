@@ -1,0 +1,60 @@
+/* styles.css */
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%; /* Set the width of the container to 80% of the screen */
+    margin: 0 auto; /* Center the container horizontally */
+  }
+  
+  #chartContainer {
+    width: 50%;
+    height: 400px;
+  }
+  
+  #forecastTable {
+    width: 15%;
+  }
+  
+  #forecastTable table {
+    width: 100%;
+    border-collapse: collapse; /* Collapse borders to avoid double borders */
+  }
+  
+  #forecastTable th,
+  #forecastTable td {
+    position: relative;
+    border: 1px dashed #ddd; /* Set the border to dashed style for cells */
+    padding: 8px;
+    text-align: center;
+  }
+  
+  #forecastTable th::before,
+  #forecastTable td::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 1px;
+    border-left: 1px dashed #ddd; /* Set the dashed border for pseudo-element */
+  }
+  
+  #forecastTable th:first-child::before,
+  #forecastTable td:first-child::before {
+    display: none; /* Hide the pseudo-element for the first column */
+  }
+  
+  #forecastTable th {
+    background-color: #f2f2f2; /* Optional: Add a background color to header cells */
+  }
+  
+  #forecastTable th:first-child,
+  #forecastTable td:first-child {
+    width: 50%; /* Set the width of the date column */
+  }
+  
+  #rightContent {
+    width: 30%;
+  }
+  

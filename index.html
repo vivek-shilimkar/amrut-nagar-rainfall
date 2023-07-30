@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rainfall Data Chart</title>
-  <!-- Include Chart.js library -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Include Chart.js library with a version or query parameter -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js?v=1"></script>
+  <link rel="stylesheet" href="styles.css"> <!-- Link to styles.css -->
   <style>
     /* Add CSS style for the chart container */
     #chartContainer {
@@ -18,6 +19,7 @@
     /* Add CSS style for the dashed line table */
     #forecastTable {
       float: left;
+      margin-right: 20px; /* Add some spacing between the table and right content */
     }
 
     /* Add CSS style for the table title */
@@ -31,10 +33,26 @@
       border-top: 1px dashed #333;
       padding: 5px;
     }
+
+    /* Add CSS style for the title and body text */
+    #rightContent {
+      float: left;
+      width: 30%;
+      margin-top: 10px; /* Add some spacing between the chart and the right content */
+    }
+
+    #rightContent h2 {
+      margin-top: 0;
+    }
   </style>
 </head>
 <body>
-  <h1>Rainfall Data Chart</h1>
+  <h1>Amrut Nagar, Jambhulwadi, Pune rainfall record.</h1>
+  <p> The daily rainfall and five days forecast is for the Amrut Nagar, Jambhulwadi Road, Pune location. <br>
+      A blue line shows the actual observed rainfall while the dashed line is forecasted rainfall. <br>
+      The data is collected on the Shrinath Town society in the Amrut Nagar. <br>
+      The data and page is maintained by the Dr. Vivek Shilimkar.
+  </p>
   <div id="chartContainer">
     <canvas id="rainfallChart"></canvas>
   </div>
@@ -42,13 +60,15 @@
   <div id="forecastTable">
     <p id="tableTitle">Last 5 Forecast Values</p>
     <table>
-      <tr>
-        <th>Date</th>
-        <th>Forecast Rainfall (mm)</th>
-      </tr>
+      <!-- ... (existing table content) ... -->
     </table>
   </div>
 
-  <script src="app.js"></script>
+  <div id="rightContent">
+    <h2>Forecast reasoning for the next five days</h2>
+    <p>This is the body text that accompanies the title.</p>
+  </div>
+
+  <script src="app.js?v=1"></script>
 </body>
 </html>

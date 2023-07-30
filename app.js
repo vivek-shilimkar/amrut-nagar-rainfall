@@ -5,7 +5,7 @@ async function fetchData() {
   return data;
 }
 
-// Function to create the chart
+// Function to create the chart and table
 async function createChart() {
   const data = await fetchData();
   const dates = data.dates;
@@ -19,7 +19,7 @@ async function createChart() {
       labels: dates,
       datasets: [
         {
-          label: 'Historical Rainfall',
+          label: 'Observed Rainfall',
           borderColor: 'rgba(75, 192, 192, 1)',
           backgroundColor: 'rgba(75, 192, 192, 0.2)',
           data: rainfall,
@@ -27,7 +27,7 @@ async function createChart() {
           tension: 0.4, // Set the tension value for smoothing (0 < tension < 1)
         },
         {
-          label: 'Forecast Rainfall',
+          label: 'Forecasted Rainfall',
           borderColor: 'rgba(255, 99, 132, 1)',
           backgroundColor: 'rgba(255, 99, 132, 0)',
           borderDash: [5, 5], // Set this to an array to create a dashed line effect
@@ -65,13 +65,13 @@ async function createChart() {
     }
   });
 
-  // Create a table with the last 5 forecast values
+  // Create a table with the forecast values for the last 5 dates in reverse order
   const forecastTable = document.getElementById('forecastTable').getElementsByTagName('table')[0];
   let tableContent = `<tr><th>Date</th><th>Forecast Rainfall (mm)</th></tr>`;
-  const lastFiveForecast = forecast.slice(-5);
 
-  for (let i = 0; i < lastFiveForecast.length; i++) {
-    tableContent += `<tr><td>${dates[dates.length - 1 - i]}</td><td>${lastFiveForecast[i]}</td></tr>`;
+  for (let i = 4; i >= 0; i--) {
+    const index = dates.length - 1 - i; // Get the index of the last 5 dates
+    tableContent += `<tr><td>${dates[index]}</td><td style="text-align: center;">${forecast[index].toFixed(1)}</td></tr>`;
   }
 
   forecastTable.innerHTML = tableContent;
